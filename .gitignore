@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Model Files (too large for git)
+models/*.pkl
+models/*.task
+*.pkl
+face_landmarker.task
+
+# Video Files (too large)
+*.mov
+*.mp4
+*.avi
+*.mkv
+
+# Temporary files
+*.log
+*.tmp
+temp/
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+check_mappings.py
+check_model.py
+test_*.py
+*_old.py
+*_backup.py

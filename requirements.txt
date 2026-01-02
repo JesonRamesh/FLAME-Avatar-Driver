@@ -1,0 +1,20 @@
+# Core Dependencies
+numpy>=1.21.0,<2.0.0
+opencv-python>=4.5.0
+mediapipe>=0.10.0
+pyvista>=0.40.0
+
+# FLAME Model Support
+chumpy>=0.70
+
+# Optional: Enhanced Visualization
+matplotlib>=3.5.0
+trimesh>=3.9.0
+
+# Python version compatibility
+pickle5>=0.0.11; python_version < '3.8'
+
+# Note: For Apple Silicon (M1/M2/M3) Macs, you may need to install some packages differently. If you encounter issues, try:
+#   pip install --upgrade pip
+#   pip install numpy --no-binary numpy
+#   pip install opencv-python-headless (instead of opencv-python)
