@@ -95,7 +95,6 @@ In `src/visualizer.py`, line 17, modify the camera position:
 ```python
 # Change the z-coordinate value (third number in the first tuple)
 self.plotter.camera_position = [(0, 0, 1.2), (0, 0, 0), (0, 1, 0)]
-#                                        ↑ Change this value
 # Smaller value = closer camera = bigger face
 # Try values: 0.8 (very close), 1.2 (recommended), 1.5 (far), 2.0 (very far)
 ```
@@ -209,10 +208,16 @@ expression = expression * 3.0  # Try 2.0 to 5.0
 
 **Solution**: Adjust the rotation matrices in `src/main.py` around line 93. The key rotation is:
 ```python
-R_y_180 = np.array([
-    [np.cos(np.radians(180)), 0, np.sin(np.radians(180))],
-    [0, 1, 0],
-    [-np.sin(np.radians(180)), 0, np.cos(np.radians(180))]
+R_z = np.array([
+    [np.cos(np.radians(180)), -np.sin(np.radians(180)), 0],
+    [np.sin(np.radians(180)), np.cos(np.radians(180)), 0],
+    [0, 0, 1]
+])
+
+R_x = np.array([
+    [1, 0, 0],
+    [0, np.cos(np.radians(-35)), -np.sin(np.radians(-35))],
+    [0, np.sin(np.radians(-35)), np.cos(np.radians(-35))]
 ])
 ```
 
@@ -223,7 +228,6 @@ Try adjusting the 180 degrees to other values (0, 90, 270) to find the correct o
 **Solution**: Adjust the camera distance in `src/visualizer.py` line 17:
 ```python
 self.plotter.camera_position = [(0, 0, 0.8), (0, 0, 0), (0, 1, 0)]
-#                                        ↑ Smaller = closer/bigger
 ```
 Try values from 0.8 to 2.0 to find your preferred zoom.
 
@@ -328,3 +332,4 @@ For questions, issues, or suggestions:
 ---
 
 ⭐ If you find this project useful, please consider giving it a star on GitHub!
+
