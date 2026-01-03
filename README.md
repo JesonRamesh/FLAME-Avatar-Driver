@@ -90,12 +90,14 @@ VIDEO_PATH = 0  # Change from 'example.mov' to 0 for webcam
 
 ### Adjust Zoom Level
 
-In `src/main.py`, around line 32:
+In `src/visualizer.py`, line 17, modify the camera position:
 
 ```python
-ZOOM = 0.6  # Smaller value = bigger face
-            # Try values: 0.4 (very close), 0.6 (recommended), 0.8 (far)
-visualizer = Visualizer(translator.model['f'], zoom=ZOOM)
+# Change the z-coordinate value (third number in the first tuple)
+self.plotter.camera_position = [(0, 0, 1.2), (0, 0, 0), (0, 1, 0)]
+#                                        ↑ Change this value
+# Smaller value = closer camera = bigger face
+# Try values: 0.8 (very close), 1.2 (recommended), 1.5 (far), 2.0 (very far)
 ```
 
 ### Fine-tune Expression Intensity
@@ -215,6 +217,15 @@ R_y_180 = np.array([
 ```
 
 Try adjusting the 180 degrees to other values (0, 90, 270) to find the correct orientation.
+
+### Zoom level not right
+
+**Solution**: Adjust the camera distance in `src/visualizer.py` line 17:
+```python
+self.plotter.camera_position = [(0, 0, 0.8), (0, 0, 0), (0, 1, 0)]
+#                                        ↑ Smaller = closer/bigger
+```
+Try values from 0.8 to 2.0 to find your preferred zoom.
 
 ### "Pre-trained mappings not found"
 
